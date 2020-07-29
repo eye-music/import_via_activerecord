@@ -1,0 +1,15 @@
+<%= form_for @user, url: users_path, html: {id: "import_form"} do |usr| %>
+	<div class="form-group">
+    	<%= usr.label :file, "Upload CSV File" %>
+      	<%= usr.file_field :file, class: 'form-control-file', required: true %>
+   	</div>
+   <%= usr.button :submit, class: 'btn btn-primary' %>
+<% end %>
+
+<% if defined?(@success_count).present? %>
+	Success count -> <%=  @success_count%>,
+<%end%>
+
+<% if defined?(@failed_count).present? %>
+	Failed count -> <%=  @failed_count%>
+<%end%>
